@@ -46,3 +46,6 @@
 [main] INFO commands.PairCommand - Найдено уникальных IP адресов: 999912
 [main] INFO Commander - time: 3983 ms, memory: 213 mb
 ```
+
+### Запуск тестов
+`./gradlew test `
