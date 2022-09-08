@@ -1,11 +1,14 @@
 [Задача](Task.md)
 
-Скомпилировать под Java 17.
+Скомпилирует под Java 17.
 
 `./gradlew shadowJar`
 
+## Запуск
 
 ### Short
+
+Команда для запуска подсчета при помощи хранилища ShortStorage.
 
 `java -jar build/libs/count-unique-ip-all.jar short ips1000000.txt`
 
