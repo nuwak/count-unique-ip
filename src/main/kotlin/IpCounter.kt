@@ -1,28 +1,22 @@
-import stores.*
+import storages.*
 import utils.IpParser
 import utils.Log
 import java.io.File
 
-class IpCounter(args: Array<String>) : Log {
-    private lateinit var file: File
-    private lateinit var store: Store
+class IpCounter(filePath: String, private val storage: Storage) : Log {
+    private val file: File
 
     init {
-        if (args.size == 1) {
-            file = File(args[0])
-            if (!file.isFile) {
-                log.error("${args[0]} is not file.")
-            }
-        }
+        file = File(filePath)
+        require(file.isFile) { "$filePath is not file.".also { log.error(it) } }
     }
 
     fun count(): Long {
-//        store = PairStore()
-        store = IntSetStore()
         file.forEachLine { ip ->
-            IpParser.getBytes(ip)
-                .also(store::add)
+            IpParser
+                .getBytes(ip)
+                .also(storage::add)
         }
-        return store.count()
+        return storage.count()
     }
 }

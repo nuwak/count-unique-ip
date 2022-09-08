@@ -1,6 +1,6 @@
-package stores
+package storages
 
-class PairStore : Store {
+class PairStorage : Storage {
     private val store: MutableList<Pair<Byte, MutableList<Pair<Byte, MutableList<Pair<Byte, MutableList<Byte>>>>>>> =
         mutableListOf()
 

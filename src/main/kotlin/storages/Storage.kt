@@ -1,6 +1,6 @@
-package stores
+package storages
 
-interface Store {
+interface Storage {
     fun add(ip: ByteArray)
     fun count(): Long
 }

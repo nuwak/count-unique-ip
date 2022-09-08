@@ -1,8 +1,8 @@
-package stores
+package storages
 
 import utils.IpParser
 
-class IntSetStore : Store {
+class IntSetStorage : Storage {
     private val positiveStore: MutableSet<Int> = mutableSetOf()
     private val negativeStore: MutableSet<Int> = mutableSetOf()
 

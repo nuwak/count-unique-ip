@@ -10,7 +10,6 @@ internal class IpParserTest {
 
     @ParameterizedTest
     @MethodSource("ips")
-//    todo как правильно называть тесты
     fun getBytes(ipString: String) {
         val res = IpParser.getBytes(ipString)
         assertArrayEquals(InetAddress.getByName(ipString).address, res)
