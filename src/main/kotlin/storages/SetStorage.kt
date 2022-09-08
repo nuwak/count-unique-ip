@@ -2,7 +2,12 @@ package storages
 
 import utils.IpParser
 
-class IntSetStorage : Storage {
+/**
+ * Максимальный размер Set это Int.MAX_VALUE = 2147483647
+ * IP адресов может быть 256*256*256*256 = 4294967296, что в два раза больше.
+ * Поэтому сделано два сета для положительных и отрицательных чисел.
+ */
+class SetStorage : Storage {
     private val positiveStore: MutableSet<Int> = mutableSetOf()
     private val negativeStore: MutableSet<Int> = mutableSetOf()
 

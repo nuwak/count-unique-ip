@@ -1,26 +1,21 @@
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import storages.IntSetStorage
-import utils.Log
-import utils.measure
+import storages.SetStorage
+import utils.Measure
 
-internal class IpCounterIntSetStorageTest : Log {
+internal class IpCounterSetStorageTest : Measure {
     @ParameterizedTest
     @MethodSource("params")
     fun count(file: String, expected: Long) {
         measure {
-            val ipCounter = IpCounter(file, IntSetStorage())
+            val ipCounter = IpCounter(file, SetStorage())
             ipCounter.count()
         }.also {
             assertEquals(expected, it)
         }
     }
-
-    //    SetStore time: 1402 ms, memory: 243 mb
-//    PairStore time: 3505 ms, memory: 134 mb
-//    time: 1353 ms, memory: 106 mb
 
     companion object {
         @JvmStatic

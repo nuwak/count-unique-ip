@@ -9,7 +9,7 @@ object IpParser {
         return ByteArray(4).mapIndexed { i, _ ->
             ip[i]
                 .toInt()
-                .also { require(it <= 255) { "not a legal ip address" } }
+                .also { require(it <= 255) { "Кажется это не IP адрес" } }
                 .toByte()
         }.toByteArray()
     }

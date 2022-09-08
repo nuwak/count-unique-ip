@@ -1,12 +1,11 @@
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import storages.ShortStorage
-import utils.Log
-import utils.measure
+import utils.Measure
 
-internal class IpCounterShortStorageTest : Log {
+internal class IpCounterShortStorageTest : Measure {
     @ParameterizedTest
     @MethodSource("params")
     fun count(file: String, expected: Long) {
