@@ -6,12 +6,15 @@ object IpParser {
     fun getBytes(str: String): ByteArray {
         val ip = str.split(".")
         require(ip.size == 4) { "IP должен быть в формате x.x.x.x" }
-        return ByteArray(4).mapIndexed { i, _ ->
-            ip[i]
+        val ipBytes = ByteArray(4)
+        ipBytes.indices.forEach { part ->
+            ipBytes[part] = ip[part]
                 .toInt()
                 .also { require(it <= 255) { "Кажется это не IP адрес" } }
                 .toByte()
-        }.toByteArray()
+        }
+
+        return ipBytes
     }
 
     fun getInt(str: String): Int = ByteBuffer.wrap(getBytes(str)).int
