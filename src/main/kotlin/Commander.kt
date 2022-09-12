@@ -3,7 +3,7 @@ import utils.Measure
 
 class Commander(private val args: Array<String>) : Command, Measure {
     private val commands = mapOf(
-        CountCommand.FLAG to CountCommand.DESCRIPTION,
+        ShortCommand.FLAG to ShortCommand.DESCRIPTION,
         GenerateCommand.FLAG to GenerateCommand.DESCRIPTION,
         SetCommand.FLAG to SetCommand.DESCRIPTION,
         PairCommand.FLAG to PairCommand.DESCRIPTION,
@@ -17,7 +17,7 @@ class Commander(private val args: Array<String>) : Command, Measure {
         }
         measure {
             when {
-                CountCommand.check(args) -> CountCommand(args).execute()
+                ShortCommand.check(args) -> ShortCommand(args).execute()
                 GenerateCommand.check(args) -> GenerateCommand(args).execute()
                 SetCommand.check(args) -> SetCommand(args).execute()
                 PairCommand.check(args) -> PairCommand(args).execute()

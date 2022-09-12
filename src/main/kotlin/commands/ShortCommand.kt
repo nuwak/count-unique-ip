@@ -3,7 +3,7 @@ package commands
 import IpCounter
 import storages.ShortStorage
 
-class CountCommand(private val args: Array<String>) : Command {
+class ShortCommand(private val args: Array<String>) : Command {
     companion object : Checker {
         const val FLAG = "short"
         const val DESCRIPTION = "Команда считает количество уникальных IP. Формат `$FLAG filename.txt`"
