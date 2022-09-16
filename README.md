@@ -1,5 +1,3 @@
-[Задача](Task.md)
-
 Скомпилирует под Java 17.
 
 `./gradlew shadowJar`
